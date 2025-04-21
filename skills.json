@@ -1,16 +1,16 @@
 [
    
     {
-        "name": "ExpressJS",
-        "icon": "https://img.icons8.com/fluency/48/000000/node-js.png"
+        "name": "Machine learning",
+        "icon": "https://img.icons8.com/?size=100&id=gTN9eaZkKLFI&format=png&color=000000"
     },
     {
-        "name": "NodeJS",
-        "icon": "https://img.icons8.com/color/48/000000/nodejs.png"
+        "name": "Data Science",
+        "icon": "https://img.icons8.com/?size=100&id=1ya3H57M8iU6&format=png&color=000000g"
     },
     {
-        "name": "Redux",
-        "icon": "https://img.icons8.com/color/48/000000/redux.png"
+        "name": "ETL Pipeline",
+        "icon": "https://img.icons8.com/?size=100&id=11903&format=png&color=000000"
     },
     {
         "name": "Firebase",
@@ -101,7 +101,7 @@
         "icon": "https://img.icons8.com/ios-filled/48/0080FF/digitalocean.png"
     },
     {
-        "name": "jQuery",
+        "name": "Machine Learning",
         "icon": "https://img.icons8.com/?size=100&id=gTN9eaZkKLFI&format=png&color=000000"
     },
     {
