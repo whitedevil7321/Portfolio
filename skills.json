@@ -109,11 +109,13 @@
         "icon": "https://img.icons8.com/color/48/000000/git.png"
     },
     {
-        "name": "GitHub",
-        "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png"
-    }, 
-    {
         "name": "Tensoflow",
         "icon": "https://img.icons8.com/?size=100&id=n3QRpDA7KZ7P&format=png&color=000000"
-    }  
+    }, 
+    {
+        "name": "GitHub",
+        "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png"
+    }
+    
 ]
+    
