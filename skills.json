@@ -2,11 +2,11 @@
    
     {
         "name": "Machine learning",
-        "icon": "https://img.icons8.com/?size=100&id=gTN9eaZkKLFI&format=png&color=000000"
+        "icon": "https://img.icons8.com/?size=100&id=114322&format=png&color=000000"
     },
     {
         "name": "Data Science",
-        "icon": "https://img.icons8.com/?size=100&id=1ya3H57M8iU6&format=png&color=000000g"
+        "icon": "https://img.icons8.com/?size=100&id=11973&format=png&color=000000"
     },
     {
         "name": "ETL Pipeline",
@@ -21,32 +21,32 @@
         "icon": "https://img.icons8.com/fluency/48/000000/android-os.png"
     },
     {
-        "name": "MaterialUI",
-        "icon": "https://img.icons8.com/color/48/000000/material-ui.png"
+        "name": "Deep Learning",
+        "icon": "https://img.icons8.com/?size=100&id=gTN9eaZkKLFI&format=png&color=000000"
     },
     {
-        "name": "ChakraUI",
-        "icon": "https://img.icons8.com/color/48/000000/chakra-ui.png"
+        "name": "GenAI",
+        "icon": "https://img.icons8.com/?size=100&id=FRmT4wzNtrsH&format=png&color=000000"
     },
     {
-        "name": "TailwindCSS",
-        "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/48px-Tailwind_CSS_Logo.png"
+        "name": "LLM's",
+        "icon": "https://img.icons8.com/?size=100&id=TUk7vxvtu6hX&format=png&color=000000"
     },
     {
-        "name": "Bootstrap",
-        "icon": "https://img.icons8.com/color/48/000000/bootstrap.png"
+        "name": "RAG",
+        "icon": "https://img.icons8.com/?size=100&id=12383&format=png&color=000000"
     },
     {
-        "name": "Sass",
-        "icon": "https://img.icons8.com/color/48/000000/sass.png"
+        "name": "MLOPS",
+        "icon": "https://img.icons8.com/?size=100&id=gTN9eaZkKLFI&format=png&color=000000"
     },
     {
-        "name": "HTML5",
-        "icon": "https://img.icons8.com/color/48/000000/html-5--v1.png"
+        "name": "NLP",
+        "icon": "https://img.icons8.com/?size=100&id=31016&format=png&color=000000"
     },
     {
-        "name": "CSS3",
-        "icon": "https://img.icons8.com/color/48/000000/css3.png"
+        "name": "OOPS",
+        "icon": "https://img.icons8.com/?size=100&id=80332&format=png&color=000000"
     },
     {
         "name": "JavaScript",
@@ -57,12 +57,12 @@
         "icon": "https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png"
     },
     {
-        "name": "Kotlin",
-        "icon": "https://img.icons8.com/color/48/000000/kotlin.png"
+        "name": "AWS",
+        "icon": "https://img.icons8.com/?size=100&id=33039&format=png&color=000000"
     },
     {
-        "name": "PHP",
-        "icon": "https://img.icons8.com/offices/48/000000/php-logo.png"
+        "name": "Apache Spark",
+        "icon": "https://img.icons8.com/?size=100&id=0cRqPqlItA0E&format=png&color=000000"
     },
     {
         "name": "Python",
@@ -85,24 +85,24 @@
         "icon": "https://img.icons8.com/color/48/000000/postgreesql.png"
     },
     {
-        "name": "AWS",
-        "icon": "https://img.icons8.com/color/48/000000/amazon-web-services.png"
+        "name": "Streamlit",
+        "icon": "https://img.icons8.com/?size=100&id=Rffi8qeb2fK5&format=png&color=000000"
     },
     {
-        "name": "Heroku",
-        "icon": "https://img.icons8.com/color/48/000000/heroku.png"
+        "name": "Docker",
+        "icon": "https://img.icons8.com/?size=100&id=22813&format=png&color=000000"
     },
     {
-        "name": "Netlify",
-        "icon": "https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/48/000000/external-netlify-a-cloud-computing-company-that-offers-hosting-and-serverless-backend-services-for-static-websites-logo-shadow-tal-revivo.png"
+        "name": "PorsgreSQL",
+        "icon": "https://img.icons8.com/?size=100&id=38561&format=png&color=000000"
     },
     {
-        "name": "DigitalOcean",
-        "icon": "https://img.icons8.com/ios-filled/48/0080FF/digitalocean.png"
+        "name": "Redis",
+        "icon": "https://img.icons8.com/?size=100&id=pHS3eRpynIRQ&format=png&color=000000"
     },
     {
-        "name": "Machine Learning",
-        "icon": "https://img.icons8.com/?size=100&id=gTN9eaZkKLFI&format=png&color=000000"
+        "name": "Computer Vision",
+        "icon": "https://img.icons8.com/?size=100&id=bpip0gGiBLT1&format=png&color=000000"
     },
     {
         "name": "Git VCS",
@@ -111,5 +111,9 @@
     {
         "name": "GitHub",
         "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png"
+    }, 
+    {
+        "name": "Tensoflow",
+        "icon": "https://img.icons8.com/?size=100&id=undefined&format=png&color=000000"
     }  
 ]
