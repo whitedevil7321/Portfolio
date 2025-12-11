@@ -105,10 +105,14 @@ function showSkills(skills) {
 }
 
 function showProjects(projects) {
-    let projectsContainer = document.querySelector("#work .box-container");
+    // ✅ Changed from "#work .box-container" to "#projects .box-container"
+    let projectsContainer = document.querySelector("#projects .box-container");
     let projectHTML = "";
-    projects.slice(0, 10).filter(project => project.category != "android").forEach(project => {
-        projectHTML += `
+    projects
+        .slice(0, 10)
+        .filter(project => project.category != "android")
+        .forEach(project => {
+            projectHTML += `
         <div class="box tilt">
       <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
       <div class="content">
@@ -124,7 +128,7 @@ function showProjects(projects) {
         </div>
       </div>
     </div>`
-    });
+        });
     projectsContainer.innerHTML = projectHTML;
 
     // <!-- tilt js effect starts -->
@@ -239,7 +243,7 @@ srtop.reveal('.skills .container .bar', { delay: 400 });
 /* SCROLL EDUCATION */
 srtop.reveal('.education .box', { interval: 200 });
 
-/* SCROLL PROJECTS */
+/* SCROLL PROJECTS (both Achievenment & Projects since they use .work .box) */
 srtop.reveal('.work .box', { interval: 200 });
 
 /* SCROLL EXPERIENCE */
