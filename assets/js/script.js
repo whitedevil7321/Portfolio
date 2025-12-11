@@ -84,7 +84,7 @@ async function fetchData(type = "skills") {
     if (type === "skills") {
         response = await fetch("skills.json");
     } else {
-        response = await fetch("./projects/projects.json");
+        response = await fetch("/assets/projects.json");
     }
     const data = await response.json();
     return data;
