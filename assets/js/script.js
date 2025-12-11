@@ -80,11 +80,12 @@ var typed = new Typed(".typing-text", {
 // <!-- typed js effect ends -->
 
 async function fetchData(type = "skills") {
-    let response
-    type === "skills" ?
-        response = await fetch("skills.json")
-        :
-        response = await fetch("./projects/projects.json")
+    let response;
+    if (type === "skills") {
+        response = await fetch("skills.json");
+    } else {
+        response = await fetch("./projects/projects.json");
+    }
     const data = await response.json();
     return data;
 }
@@ -95,47 +96,54 @@ function showSkills(skills) {
     skills.forEach(skill => {
         skillHTML += `
         <div class="bar">
-              <div class="info">
-                <img src=${skill.icon} alt="skill" />
+            <div class="info">
+                <img src="${skill.icon}" alt="skill" />
                 <span>${skill.name}</span>
-              </div>
-            </div>`
+            </div>
+        </div>`;
     });
     skillsContainer.innerHTML = skillHTML;
 }
 
 function showProjects(projects) {
-    // ✅ Changed from "#work .box-container" to "#projects .box-container"
-    let projectsContainer = document.querySelector("#projects .box-container");
+    // ⬇⬇⬇ IMPORTANT CHANGE: now targets the Projects section, not Achievements ⬇⬇⬇
+    let projectsContainer = document.getElementById("projectsContainer");
+    if (!projectsContainer) return;
+
     let projectHTML = "";
     projects
         .slice(0, 10)
-        .filter(project => project.category != "android")
+        .filter(project => project.category !== "android")
         .forEach(project => {
             projectHTML += `
         <div class="box tilt">
-      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
-      <div class="content">
-        <div class="tag">
-        <h3>${project.name}</h3>
-        </div>
-        <div class="desc">
-          <p>${project.desc}</p>
-          <div class="btns">
-            <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>`
+            <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
+            <div class="content">
+                <div class="tag">
+                    <h3>${project.name}</h3>
+                </div>
+                <div class="desc">
+                    <p>${project.desc}</p>
+                    <div class="btns">
+                        <a href="${project.links.view}" class="btn" target="_blank">
+                            <i class="fas fa-eye"></i> View
+                        </a>
+                        <a href="${project.links.code}" class="btn" target="_blank">
+                            Code <i class="fas fa-code"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>`;
         });
+
     projectsContainer.innerHTML = projectHTML;
 
-    // <!-- tilt js effect starts -->
+    // tilt js effect starts
     VanillaTilt.init(document.querySelectorAll(".tilt"), {
         max: 15,
     });
-    // <!-- tilt js effect ends -->
+    // tilt js effect ends
 
     /* ===== SCROLL REVEAL ANIMATION ===== */
     const srtop = ScrollReveal({
@@ -147,7 +155,6 @@ function showProjects(projects) {
 
     /* SCROLL PROJECTS */
     srtop.reveal('.work .box', { interval: 200 });
-
 }
 
 fetchData().then(data => {
@@ -158,11 +165,11 @@ fetchData("projects").then(data => {
     showProjects(data);
 });
 
-// <!-- tilt js effect starts -->
+// tilt js effect starts
 VanillaTilt.init(document.querySelectorAll(".tilt"), {
     max: 15,
 });
-// <!-- tilt js effect ends -->
+// tilt js effect ends
 
 
 // pre loader start
@@ -235,7 +242,6 @@ srtop.reveal('.about .content p', { delay: 200 });
 srtop.reveal('.about .content .box-container', { delay: 200 });
 srtop.reveal('.about .content .resumebtn', { delay: 200 });
 
-
 /* SCROLL SKILLS */
 srtop.reveal('.skills .container', { interval: 200 });
 srtop.reveal('.skills .container .bar', { delay: 400 });
@@ -243,13 +249,13 @@ srtop.reveal('.skills .container .bar', { delay: 400 });
 /* SCROLL EDUCATION */
 srtop.reveal('.education .box', { interval: 200 });
 
-/* SCROLL PROJECTS (both Achievenment & Projects since they use .work .box) */
+/* SCROLL PROJECTS (both achievements & projects share .work .box) */
 srtop.reveal('.work .box', { interval: 200 });
 
 /* SCROLL EXPERIENCE */
 srtop.reveal('.experience .timeline', { delay: 400 });
 srtop.reveal('.experience .timeline .container', { interval: 400 });
 
-/* SCROLL CONTACT */
+/* SCROLL CONTACT (if you add it later) */
 srtop.reveal('.contact .container', { delay: 400 });
 srtop.reveal('.contact .container .form-group', { delay: 400 });
