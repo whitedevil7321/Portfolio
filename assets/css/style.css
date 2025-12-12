@@ -640,123 +640,121 @@ header .navbar ul li a:hover {
 /* education section ends */
 
 /* work section starts */
+/* work section starts */
 .work {
-  /* background: #010124; */
   background: linear-gradient(to bottom, #000031, #00002c);
 }
+
 .work h2 {
   color: #fff;
   padding: 1rem;
 }
+
 .work .heading span {
   color: rgb(255, 230, 0);
 }
+
 .work .box-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   margin: 2rem;
 }
+
+/* Card container */
 .work .box-container .box {
   flex: 1 1 30rem;
   border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
-  height: 30rem;
+  background: #fff;
+  min-height: 22rem; /* flexible height */
 }
+
+/* Image (only if present, achievements) */
 .work .box-container .box img {
-  height: 100%;
   width: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
+
+/* Content ALWAYS visible */
 .work .box-container .box .content {
-  height: 100%;
   width: 100%;
-  position: absolute;
-  top: 85%;
-  left: 0;
-  background: rgba(255, 255, 255, 0.9);
+  position: relative; /* <-- key fix */
+  background: rgba(255, 255, 255, 0.96);
   display: flex;
   flex-direction: column;
 }
+
+/* Title bar */
 .work .box-container .box .content .tag {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  height: 4.5rem;
-  width: 100%;
-  padding-left: 1rem;
+  min-height: 4.5rem;
+  padding: 0.8rem 1rem;
   background: #ffd900;
 }
+
 .work .box-container .box .content .tag h3 {
   font-size: 2rem;
+  margin: 0;
 }
-.work .box-container .box:hover .content {
-  top: 25%;
-}
+
+/* Description */
 .work .desc {
-  margin: 2rem;
+  margin: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
+
 .work .desc p {
   font-size: 1.5rem;
+  line-height: 1.6;
 }
+
+/* Buttons */
 .work .desc .btns {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 2rem;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
+
 .work .desc .btns .btn {
-  line-height: 0;
-  display: inline;
-  padding: 1.5rem 2.5rem;
+  padding: 1.3rem 2.2rem;
   border-radius: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #fff;
   background: rgb(12, 12, 12);
-  margin-right: 2rem;
 }
+
 .work .desc .btns .btn:hover {
   background: #310ae0f5;
 }
+
+/* View all button */
 .work .viewall {
   display: flex;
   justify-content: center;
+  margin-top: 3rem;
 }
+
 .work .viewall .btn {
-  position: relative;
-  line-height: 0;
   padding: 1.6rem 3rem;
   border-radius: 0.5em;
-  transition: 0.5s;
-  color: rgb(255, 255, 255);
+  color: #fff;
   font-weight: 700;
   border: 2px solid #fff;
-  box-shadow: 0px 5px 10px rgba(65, 84, 241, 0.4);
-  text-align: center;
 }
-.work .viewall .btn span {
-  font-weight: 600;
-  font-size: 1.7rem;
-  font-family: "Nunito", sans-serif;
-}
-.work .viewall .btn i {
-  margin-left: 0.3rem;
-  font-size: 1.5rem;
-  transition: 0.3s;
-}
+
 .work .viewall .btn:hover {
   background: #fff;
   color: #000;
 }
-.work .viewall .btn:hover i {
-  transform: translateX(5px);
-}
+/* work section ends */
+
 /* work section ends */
 
 /* experience section starts */
