@@ -9,13 +9,14 @@ $(document).ready(function () {
         $('#menu').removeClass('fa-times');
         $('.navbar').removeClass('nav-toggle');
 
+        // scroll-top button
         if (window.scrollY > 60) {
             document.querySelector('#scroll-top').classList.add('active');
         } else {
             document.querySelector('#scroll-top').classList.remove('active');
         }
 
-        // scroll spy
+        // scroll spy (only highlight nav, no animations)
         $('section').each(function () {
             let height = $(this).height();
             let offset = $(this).offset().top - 200;
@@ -29,13 +30,12 @@ $(document).ready(function () {
         });
     });
 
-    // smooth scrolling only for hash links
+    // smooth scrolling
     $('a[href*="#"]').on('click', function (e) {
-        const target = $(this).attr('href');
-        if (target.startsWith('#')) {
+        if (this.hash && this.pathname === window.location.pathname) {
             e.preventDefault();
             $('html, body').animate({
-                scrollTop: $(target).offset().top,
+                scrollTop: $($(this).attr('href')).offset().top,
             }, 500, 'linear');
         }
     });
@@ -55,10 +55,9 @@ $(document).ready(function () {
             });
         event.preventDefault();
     });
-
 });
 
-// change title & favicon on tab visibility
+// change title + favicon on tab visibility
 document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === "visible") {
         document.title = "Portfolio | Jeevan Aher";
@@ -69,7 +68,7 @@ document.addEventListener('visibilitychange', function () {
     }
 });
 
-// typed js effect
+// typed.js effect (this is only the typing text, not fade)
 var typed = new Typed(".typing-text", {
     strings: ["Ai Developer", "Python Developer", "Flutter Developer", "Java Development"],
     loop: true,
@@ -78,24 +77,15 @@ var typed = new Typed(".typing-text", {
     backDelay: 500,
 });
 
-// fetch data (skills / projects)
-async function fetchData(type = "skills") {
-    let response;
-    if (type === "skills") {
-        // skills.json should be at same level as index.html
-        response = await fetch("skills.json");
-    } else {
-        // projects.json directly inside /assets
-        response = await fetch("./assets/projects.json");
-    }
+// fetch skills from skills.json
+async function fetchData() {
+    const response = await fetch("skills.json");
     const data = await response.json();
     return data;
 }
 
 function showSkills(skills) {
     let skillsContainer = document.getElementById("skillsContainer");
-    if (!skillsContainer) return;
-
     let skillHTML = "";
     skills.forEach(skill => {
         skillHTML += `
@@ -109,122 +99,30 @@ function showSkills(skills) {
     skillsContainer.innerHTML = skillHTML;
 }
 
-function showProjects(projects) {
-    // IMPORTANT: Only touch the Projects section
-    let projectsContainer = document.querySelector("#projects .box-container");
-    if (!projectsContainer) return;
-
-    let projectHTML = "";
-    projects
-        .slice(0, 10)
-        .filter(project => project.category !== "android")
-        .forEach(project => {
-            projectHTML += `
-        <div class="box tilt">
-            <img draggable="false" src="./assets/images/projects/${project.image}" alt="project" />
-            <div class="content">
-                <div class="tag">
-                    <h3>${project.name}</h3>
-                </div>
-                <div class="desc">
-                    <p>${project.desc}</p>
-                    <div class="btns">
-                        <a href="${project.links.view}" class="btn" target="_blank">
-                            <i class="fas fa-eye"></i> View
-                        </a>
-                        <a href="${project.links.code}" class="btn" target="_blank">
-                            Code <i class="fas fa-code"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>`;
-        });
-
-    projectsContainer.innerHTML = projectHTML;
-
-    // tilt effect for dynamically added project cards
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 15,
-    });
-}
-
-// load skills & projects
 fetchData().then(data => {
     showSkills(data);
 });
 
-fetchData("projects").then(data => {
-    showProjects(data);
-});
-
-// tilt effect for any tilt elements already in DOM (hero, achievements)
+// tilt effect (3D hover tilt only, no fading)
 VanillaTilt.init(document.querySelectorAll(".tilt"), {
     max: 15,
 });
 
-// disable developer tools shortcuts
+// disable some dev tools shortcuts
 document.onkeydown = function (e) {
-    if (e.keyCode === 123) return false;
-    if (e.ctrlKey && e.shiftKey && e.keyCode === 'I'.charCodeAt(0)) return false;
-    if (e.ctrlKey && e.shiftKey && e.keyCode === 'C'.charCodeAt(0)) return false;
-    if (e.ctrlKey && e.shiftKey && e.keyCode === 'J'.charCodeAt(0)) return false;
-    if (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0)) return false;
+    if (e.keyCode == 123) { // F12
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        return false;
+    }
 };
-
-// Tawk.to live chat
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function () {
-    var s1 = document.createElement("script"),
-        s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/60df10bf7f4b000ac03ab6a8/1f9jlirg6';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-})();
-
-// ScrollReveal animation (single shared instance)
-const srtop = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 1000,
-    reset: False
-});
-
-/* SCROLL HOME */
-srtop.reveal('.home .content h3', { delay: 200 });
-srtop.reveal('.home .content p', { delay: 200 });
-srtop.reveal('.home .content .btn', { delay: 200 });
-srtop.reveal('.home .image', { delay: 400 });
-srtop.reveal('.home .linkedin', { interval: 600 });
-srtop.reveal('.home .github', { interval: 800 });
-srtop.reveal('.home .twitter', { interval: 1000 });
-srtop.reveal('.home .telegram', { interval: 600 });
-srtop.reveal('.home .instagram', { interval: 600 });
-srtop.reveal('.home .dev', { interval: 600 });
-
-/* SCROLL ABOUT */
-srtop.reveal('.about .content h3', { delay: 200 });
-srtop.reveal('.about .content .tag', { delay: 200 });
-srtop.reveal('.about .content p', { delay: 200 });
-srtop.reveal('.about .content .box-container', { delay: 200 });
-srtop.reveal('.about .content .resumebtn', { delay: 200 });
-
-/* SCROLL SKILLS */
-srtop.reveal('.skills .container', { interval: 200 });
-srtop.reveal('.skills .container .bar', { delay: 400 });
-
-/* SCROLL EDUCATION */
-srtop.reveal('.education .box', { interval: 200 });
-
-/* SCROLL WORK (Achievements + Projects share same UI) */
-srtop.reveal('.work .box', { interval: 200 });
-
-/* SCROLL EXPERIENCE */
-srtop.reveal('.experience .timeline', { delay: 400 });
-srtop.reveal('.experience .timeline .container', { interval: 400 });
-
-/* SCROLL CONTACT */
-srtop.reveal('.contact .container', { delay: 400 });
-srtop.reveal('.contact .container .form-group', { delay: 400 });
