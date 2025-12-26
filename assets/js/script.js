@@ -70,7 +70,7 @@ document.addEventListener('visibilitychange', function () {
 
 // typed.js effect (this is only the typing text, not fade)
 var typed = new Typed(".typing-text", {
-    strings: ["Ai Developer", "Python Developer", "Flutter Developer", "Java Development"],
+    strings: ["AI/ML Development","Distributed Training","Computer Vision","Building Fintech Solution's"],
     loop: true,
     typeSpeed: 50,
     backSpeed: 25,
