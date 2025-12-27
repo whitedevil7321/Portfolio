@@ -41,21 +41,36 @@ $(document).ready(function () {
     });
 
     // emailjs contact form
-    $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
-        event.preventDefault();
-    });
+<script>
+(function () {
+    // Initialize EmailJS with your public key
+    emailjs.init("0GDAV11cTYj04JQna");
+})();
+
+// Contact form submission
+$("#contact-form").submit(function (event) {
+    event.preventDefault(); // Stop page from refreshing
+
+    emailjs.sendForm(
+        "contact_service",      // Your EmailJS Service ID
+        "template_contact",     // Your EmailJS Template ID
+        this                    // The form element
+    ).then(
+        function () {
+            alert("Form Submitted Successfully");
+            document.getElementById("contact-form").reset(); // Reset the form
+        },
+        function (error) {
+            console.error("FAILED...", error);
+            alert("Form Submission Failed! Try Again");
+        }
+    );
 });
+</script>
+;
 
 // change title + favicon on tab visibility
 document.addEventListener('visibilitychange', function () {
