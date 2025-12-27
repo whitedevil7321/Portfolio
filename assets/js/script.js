@@ -100,28 +100,23 @@ async function fetchData() {
 }
 
 function showSkills(skills) {
-    const skillsContainer = document.getElementById("skillsContainer");
+    let skillsContainer = document.getElementById("skillsContainer");
     let skillHTML = "";
     skills.forEach(skill => {
         skillHTML += `
-        <div class="bar tilt">
+        <div class="bar">
             <div class="info">
-                <img src="${skill.icon}" alt="${skill.name}" />
+                <img src="${skill.icon}" alt="skill" />
                 <span>${skill.name}</span>
             </div>
         </div>`;
     });
     skillsContainer.innerHTML = skillHTML;
-
-    // re-initialize tilt for dynamically added elements
-    VanillaTilt.init(document.querySelectorAll(".bar.tilt"), {
-        max: 15,
-        speed: 400,
-    });
 }
 
-fetchData().then(data => showSkills(data));
-
+fetchData().then(data => {
+    showSkills(data);
+});
 
 // tilt effect (3D hover tilt only, no fading)
 VanillaTilt.init(document.querySelectorAll(".tilt"), {
